@@ -1,11 +1,22 @@
-// export async function generateStaticParams() {
-//   const posts = await fetch('https://.../posts').then((res) => res.json())
+import { db } from "@/db/drizzle";
+import { categoriesTable } from "@/db/schema";
 
-//   return posts.map((post) => ({
-//     slug: post.slug,
-//   }))
-// }
+export async function generateStaticParams() {
+  const categories = await db.select().from(categoriesTable);
 
-export default function Category() {
-  return <div>Category</div>;
+  return categories.map((c) => ({
+    category: c.title.toLowerCase(),
+  }));
+}
+
+interface Props {
+  params: {
+    category: string;
+  };
+}
+
+export default function Category({ params: { category } }: Props) {
+  console.log(category);
+
+  return <div>Category {category}</div>;
 }
