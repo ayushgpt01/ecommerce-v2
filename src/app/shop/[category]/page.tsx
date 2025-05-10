@@ -10,13 +10,11 @@ export async function generateStaticParams() {
 }
 
 interface Props {
-  params: {
-    category: string;
-  };
+  category: string;
 }
 
-export default function Category({ params: { category } }: Props) {
-  console.log(category);
+export default async function Category({ params }: { params: Promise<Props> }) {
+  const { category } = await params;
 
   return <div>Category {category}</div>;
 }
