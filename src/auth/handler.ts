@@ -1,5 +1,5 @@
+import { getUserByEmail } from "@/db/actions";
 import { db } from "@/db/drizzle";
-import { getUserByEmail } from "@/db/handlers";
 import {
   accounts,
   authenticators,

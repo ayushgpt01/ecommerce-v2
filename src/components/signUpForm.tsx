@@ -1,11 +1,12 @@
 "use client";
 
-import { registerUser } from "@/db/handlers";
+import { registerUser } from "@/db/actions";
 import type { SignUpSchema } from "@/types/zodSchema";
 import { signUpSchema } from "@/types/zodSchema";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEventHandler, useState } from "react";
+import Button from "./button";
 
 export default function SignUpForm() {
   const router = useRouter();
@@ -141,15 +142,7 @@ export default function SignUpForm() {
         </label>
       </div>
 
-      <button
-        type='submit'
-        className='min-w-40 w-auto h-[50px] tracking-[0.5px] text-base/[50px] py-0 
-        px-9 bg-black text-white uppercase font-bold cursor-pointer flex 
-        justify-center items-centerhover:bg-white hover:text-black hover:border 
-        hover:border-black max-[800px]:text-[12px] max-[800px]:py-7'
-      >
-        Sign Up
-      </button>
+      <Button type='submit'>Sign Up</Button>
       {error && <p className='text-red-500 text-sm mt-2'>{error}</p>}
     </form>
   );

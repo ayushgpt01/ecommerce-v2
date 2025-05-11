@@ -14,9 +14,9 @@ export default function CategoryItem({ title, imageUrl, route }: Props) {
   return (
     <div
       className='group min-w-[30%] h-[240px] flex grow shrink basis-auto 
-    items-center justify-center border border-black mt-0 mb-[15px] 
-    mx-[7.5px] overflow-hidden cursor-pointer first:mr-[7.5px] 
-    last:ml-[7.5px] max-[800px]:h-[200px]'
+      items-center justify-center border border-black mt-0 mb-[15px] 
+      mx-[7.5px] overflow-hidden cursor-pointer first:mr-[7.5px] 
+      last:ml-[7.5px] max-[800px]:h-[200px]'
       onClick={() => router.push(route)}
     >
       <div
@@ -32,12 +32,12 @@ export default function CategoryItem({ title, imageUrl, route }: Props) {
       />
       <div
         className='h-[90px] py-0 px-[25px] flex flex-col items-center 
-    justify-center border border-black bg-white opacity-70 absolute
-    transition-opacity group-hover:opacity-90'
+        justify-center border border-black bg-white opacity-70 absolute
+        transition-opacity group-hover:opacity-90'
       >
         <h2
-          className='font-bold my-0 mx-[6px] text-[22px] text-[#4a4a4a] 
-      uppercase'
+          className='font-bold !my-0 mx-[6px] text-[22px] text-[#4a4a4a] 
+          uppercase'
         >
           {title}
         </h2>
