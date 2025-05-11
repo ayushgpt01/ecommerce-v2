@@ -26,8 +26,8 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={`min-w-40 w-auto min-h-[50px] tracking-[0.5px] text-base/[50px]
-      py-0 px-9 uppercase font-bold cursor-pointer flex justify-center items-center 
+      className={`min-w-40 w-auto h-[50px] tracking-[0.5px] text-base/[50px]
+      py-0 px-6 uppercase font-bold cursor-pointer flex justify-center items-center 
       max-[800px]:text-[12px] max-[800px]:py-7 ${getButtonClasses(buttonType)}`}
       disabled={isLoading}
       {...rest}
