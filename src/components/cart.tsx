@@ -1,42 +1,28 @@
 "use client";
 
 import ShoppingBagSVG from "@/assets/SVG/shoppingBagSVG";
+import { useStore } from "@/store/store";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Fragment, useState } from "react";
-
-interface Item {
-  id: number;
-  imageUrl: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
+import { Fragment } from "react";
 
 export default function Cart() {
   const router = useRouter();
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems] = useState<Item[]>([
-    {
-      id: 1,
-      imageUrl: "https://i.ibb.co/ZYW3VTp/brown-brim.png",
-      name: "Test",
-      price: 12,
-      quantity: 1,
-    },
-  ]);
+  const cartItems = useStore((state) => state.cart);
+  const isCartOpen = useStore((state) => state.isCartOpen);
+  const toggleCart = useStore((state) => state.toggleCart);
 
   return (
     <Fragment>
       <div
         className='size-11 relative flex justify-center items-center 
           cursor-pointer'
-        onClick={() => {
-          setIsCartOpen((prev) => !prev);
-        }}
+        onClick={() => toggleCart()}
       >
         <ShoppingBagSVG width={24} height={24} />
-        <span className='absolute text-[10px] font-bold bottom-3'>12</span>
+        <span className='absolute text-[10px] font-bold bottom-3'>
+          {cartItems.length}
+        </span>
       </div>
       {isCartOpen && (
         <div
@@ -48,7 +34,7 @@ export default function Cart() {
               cartItems.map(({ id, name, imageUrl, quantity, price }) => (
                 <div className='w-full flex h-[80px] mb-3.5' key={id}>
                   <Image
-                    src={imageUrl}
+                    src={imageUrl ?? ""}
                     alt={name}
                     loader={({ src }) => src}
                     width={0}

@@ -4,14 +4,16 @@ import Image from "next/image";
 import React from "react";
 import Button from "./button";
 import { ButtonType, Product } from "@/types/interfaces";
+import { useStore } from "@/store/store";
 
 interface Props {
   product: Product;
 }
 
-export default function ProductCard({
-  product: { id, imageUrl, name, price },
-}: Props) {
+export default function ProductCard({ product }: Props) {
+  const { imageUrl, name, price } = product;
+  const addItem = useStore((state) => state.addItem);
+
   return (
     <div
       className='w-full flex flex-col h-[350px] items-center relative group
@@ -39,7 +41,7 @@ export default function ProductCard({
           type='button'
           buttonType={ButtonType.Inverted}
           onClick={() => {
-            console.log("id: ", id);
+            addItem({ ...product, quantity: 1 });
           }}
         >
           Add to cart
