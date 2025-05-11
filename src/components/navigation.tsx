@@ -16,7 +16,7 @@ export default function Navigation() {
         <LogoSVG />
       </Link>
       <div className='w-1/2 h-full flex items-center justify-end max-[800px]:w-4/5'>
-        <Link className='py-2.5 px-3.5' href={"/shop"}>
+        <Link prefetch className='py-2.5 px-3.5' href={"/shop"}>
           SHOP
         </Link>
         <AuthNavigation />

@@ -33,7 +33,7 @@ export default async function Category({ params }: { params: Promise<Props> }) {
 
   return (
     <div className='flex flex-col mb-[30px] max-[800px]:items-center'>
-      <h2 className='text-[38px] mb-[25px] text-center'>
+      <h2 className='text-[38px] text-center'>
         {category.title.toUpperCase()}
       </h2>
 

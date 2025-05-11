@@ -1,7 +1,7 @@
+import Navigation from "@/components/navigation";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/navigation";
 
 const raleway = Raleway({
   variable: "--font-raleway",

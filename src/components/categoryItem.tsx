@@ -1,6 +1,4 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface Props {
   title: string;
@@ -9,15 +7,14 @@ interface Props {
 }
 
 export default function CategoryItem({ title, imageUrl, route }: Props) {
-  const router = useRouter();
-
   return (
-    <div
+    <Link
+      href={route}
+      prefetch
       className='group min-w-[30%] h-[240px] flex grow shrink basis-auto 
       items-center justify-center border border-black mt-0 mb-[15px] 
       mx-[7.5px] overflow-hidden cursor-pointer first:mr-[7.5px] 
       last:ml-[7.5px] max-[800px]:h-[200px]'
-      onClick={() => router.push(route)}
     >
       <div
         className='w-full h-full bg-cover bg-center 
@@ -43,6 +40,6 @@ export default function CategoryItem({ title, imageUrl, route }: Props) {
         </h2>
         <p className='font-extralight text-[16px]'>Shop Now</p>
       </div>
-    </div>
+    </Link>
   );
 }

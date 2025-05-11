@@ -8,7 +8,7 @@ export default function AuthClient() {
 
   if (!session?.user)
     return (
-      <Link className='py-2.5 px-3.5' href='/auth'>
+      <Link prefetch className='py-2.5 px-3.5' href='/auth'>
         SIGN IN
       </Link>
     );
